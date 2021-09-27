@@ -30,11 +30,12 @@ const fileFilter = (req, file, cb) => {
     }
 }
 
-var corsOptions = {
-    origin : "https://localhost:8081"
-}
+// var corsOptions = {
+//     origin : "https://localhost:8081"
+// }
 
-app.use(cors(corsOptions))
+// app.use(cors(corsOptions))
+app.use(cors())
 
 app.use(bodyParser.json())
 

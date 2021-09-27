@@ -11,7 +11,7 @@ const db = require('./models')
 
 const fileStorage = multer.diskStorage({
     destination: (req, file, cb) => {
-        cb(null, 'images')
+        cb(null, 'public/images')
     },
     filename: (req, file, cb) => {
         cb(null, new Date().getTime() + '-' + file.originalname)
@@ -52,6 +52,8 @@ mongoose.connect(`${process.env.MONGO_URI}`, {
 })
 
 app.use(bodyParser.urlencoded({extended: true}))
+
+app.use(express.static("public"));
 
 app.get("/", (req, res) => {
     res.json({message: "Halo API berjalan dengan lancar"})
